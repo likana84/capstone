@@ -1,0 +1,134 @@
+{% extends "library/layout.html" %}
+{% load static %}
+
+    
+{%  block content  %} 
+ 
+<style>
+    div{
+        display:none;
+    }
+
+  </style>
+  <script>
+    function showPage(page) {
+      document.querySelectorAll('div').forEach(div => {
+        div.style.display= 'none';
+      })
+    
+      document.querySelector(`#${page}`).style.display= 'block';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('button').forEach(button => {
+        button.onclick = function() {
+          showPage(this.dataset.page);           
+        }
+      });
+    });
+  </script>
+
+ 
+    
+    <button data-page="addBook">Add book</button>
+    <button data-page="borrow_a_book">Borrow a book</button>
+    <a href="{% url 'library:lib_staff' %}"><button data-page="libraryStaff">Library staff</button></a>
+    <a href="{% url 'library:books'%}"><button data-page="">BOOKS</button></a>
+    
+
+  </br>
+  
+  <div id="addBook">
+      <h4>ADD A BOOK </h4>
+      <form id="addBook1" action="add_books" method="POST">
+        {% csrf_token %}
+        
+        CATEGORY:      <input type="text"  name="addCat" placeholder="category">
+        </br></br>
+      
+        BOOK TITLE:      <input type="text"  name="addTit" placeholder="title">
+        </br></br>
+
+        ABOUT THE BOOK:      <input type="text"  name="book_theme" placeholder="description">
+        </br></br>
+
+        BOOK CONDITION:      <input type="text"  name="status" placeholder="book_status">
+        </br></br>
+
+        REFID:<input type="text"  name="addRef" placeholder="ref">
+        </br></br>
+
+        IMAGEURL:<input type="text"  name="addUrl" placeholder="imageUrl">
+        </br></br>
+
+
+
+        PRICE:      <input type="number"  name="addPrice" placeholder="book_price">
+        </br></br>
+      
+        AUTHOR:     <input type="text"  name="addAut" placeholder="author">
+        </br></br>
+      
+        COPIES:      <input type="text"  name="addCopies" placeholder="book_copies">
+        </br></br>
+
+          <button type="submit">Add a book</button>
+
+      </form>
+
+</div></br></br>
+
+  
+  
+
+
+  <div id="borrow_a_book">
+          <h4>BORROW A BOOK </h4>
+          <form id="borrow_a_book1" action="book_borrowed" method="POST">
+            {% csrf_token %}
+           
+              STUDENT NAME:   <input type="text" mx='30' max='50' name="student_name_1" placeholder="name">
+            </br></br>
+            
+              STUDENT REF ID:   <input type="text" mx='30' max='50' name="student_id" placeholder="studentID">
+            </br>
+            
+              CATEGORY:   <input type="text" mx='30' max='50' name="borCat" placeholder="category">
+            </br>
+            
+               TITLE:      <input type="text" mx='30' max='50' name="borTit" placeholder="title">
+            </br></br>
+            
+               AUTHOR:     <input type="text" max='50' name="borAut" placeholder="author">
+            </br></br>
+            
+              BOOK REF ID:<input type="text" max='50' name="borRef" placeholder="ref">
+            </br></br>
+
+              BOOK CONDITION:<input type="text" max='50' name="borCondition" placeholder="ref">
+            </br></br>
+            
+            
+            
+              RETURN DATE:      <input type="text" max='50' name="retDat" placeholder="RETURN DATE">
+            </br></br>
+
+              STATUS:      <input type="text" max='50' name="borStatus" placeholder="STATUS">
+            </br></br>
+            
+                <button type="submit">Borrow a book</button>
+            
+            
+          </form>
+  </div></br>
+
+
+  
+  
+    <div id="libraryStaff">
+           
+           
+    </div></br>
+  
+         
+{% endblock content %}

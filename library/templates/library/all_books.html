@@ -1,0 +1,71 @@
+{% extends "library/layout.html" %}
+{% load static %}
+
+    
+{%  block content  %} 
+<h2>BOOK DATABSE</h2>
+<div>SEARCH</div>
+<div>
+    
+    <form  class="d-flex" role= "search">
+        {% csrf_token%}
+        <input   type="search"  placeholder="Search " aria label>
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+
+
+
+
+        <h4>{{allBooks.count}} book collections.</h4>
+  
+ 
+    <table class="table">
+      <thead>
+          <tr>
+              <td>CATEGORY</td>
+              <td>TITLE</td>
+              <td>CONDITION</td>
+              <td>ABOUT THE BOOK</td>
+              <td>REFID</td>
+              <td>PRICE</td>
+              <td>AUTHOR</td>
+              <td>COPIES</td>
+          </tr>
+
+      </thead>
+      <tbody>
+        {% for allBooks in allBooks %}
+            <tr>
+                    <td>{{allBooks.category}}</td>
+                    <td>{{allBooks.title}}</td>
+                    <td>{{allBooks.book_condition}}</td>
+                    <td>{{allBooks.about_the_book}}</td>
+                    <td>{{allBooks.refId}}</td>
+                    <td>{{allBooks.price}}</td>
+                    <td>{{allBooks.author}}</td>
+                    <td>{{allBooks.copies}}</td>
+                    <td>
+                    <a href="edit_books_view id={{allBooks.id}}"><button type="submit" class= "btn btn-primary">Edit</button></a>
+                    <a href="delete_add_books id={{allBooks.id}}/"><button class="btn btn-danger">Delete</button></a>
+                    </td>
+
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table></br></br>
+   
+</div>
+  
+<div id="links">
+    
+    <a href="{% url 'library:book_borrowed_view'%}">BOOKS BORROWED</a></br>
+    <a href="{% url 'library:author'%}">AUTHORS</a></br>
+    
+</div>
+  
+
+    
+    
+        
+{% endblock content %} 
+      

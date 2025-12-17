@@ -1,0 +1,56 @@
+{% extends "library/layout.html" %}
+{% load static %}
+
+    
+{%  block content  %} 
+<div>SEARCH</div>
+<div>
+    
+    <form  class="d-flex" role= "search" action="#" method="POST">
+        {% csrf_token%}
+        <input   type="search" name="q" placeholder="Search " value="{{q}}">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+
+
+
+
+    <h4>{{studentNames.count}} students subscribed.</h4>
+
+
+<div class="row" style="margin-top:20px;">
+    <div class= "container" style="overflow-y-auto;height= 400px">
+        <table class= "table table-hover">
+            <thead>
+                <tr>
+                    <td>referenceId</td>
+                    <td>studentName</td>
+                    <td>phone_number</td>
+                    <td>parents</td>
+                    <td>residence</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for studentNames in studentNames %}
+                    <tr>
+                            <td>{{studentNames.referenceId}}</td>
+                            <td>{{studentNames.studentName}}</td>
+                            <td>{{studentNames.phone_number}}</td>
+                            <td>{{studentNames.parents}}</td>
+                            <td>{{studentNames.residence}}</td>
+                            <td>
+                            <a href= "edit_add_student id={{studentNames.id}}"/><button class= "btn btn primary">Edit</button></a>
+                                <button class= "btn btn danger">Delete</button>
+                            </td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+           
+        </table>
+    </div>
+</div>
+</div>
+
+    
+{% endblock content %}

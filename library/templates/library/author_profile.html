@@ -1,0 +1,27 @@
+{% extends "library/layout.html" %}
+{% load static %}
+
+    
+{%  block content  %}
+<style>
+li{
+    font-size:20px;
+    
+} 
+</style> 
+<h1>AUTHOR PROFILE<h1>
+<div>
+{% if author_profiles %}
+    {% for author_profiles in author_profiles %}
+    <ul>
+        <li>NAMES: {{author_profiles.first_name}}  {{author_profiles.last_name}}</li><br>
+        <li>DATE OF BIRTH: {{author_profiles.date_of_birth}}</li><br>
+        <li>NATIONALITY: {{author_profiles.nationality}}</li>
+    </ul>
+    {% endfor %}
+{% else %}
+    <p style="font-size:18px">Books not available</p>  
+{% endif%}
+   
+</div>   
+{% endblock content %}

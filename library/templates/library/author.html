@@ -1,0 +1,20 @@
+{% extends "library/layout.html" %}
+{% load static %}
+
+    
+{%  block content  %}  
+    <h1>AUTHORS<h1>
+    <div>
+    {% if authors %}
+        <ol>
+            {% for authors in authors %}
+            <li>Name:<a href="{% url 'library:author_profile'%}">{{authors.first_name}}  {{authors.last_name }}</li>
+                
+                 
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p style="font-size:18px"> Not found</p>  
+    {% endif %} 
+    </div>   
+{% endblock content %}

@@ -1,0 +1,203 @@
+{% extends "library/layout.html" %}
+{% load static %}
+
+    
+{%  block content  %}
+<style>
+  div{
+      
+    display:none;
+}
+  #Jesus{
+    
+      background-image: repeating-radial-gradient( red, orange 10%, indigo 15%);
+    
+  }
+
+</style>
+<script>
+  function showPage(page) {
+    document.querySelectorAll('div').forEach(div => {
+        div.style.display= 'none';
+        })
+    
+        document.querySelector(`#${page}`).style.display= 'block';
+      }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('button').forEach(button => {
+            button.onclick = function() {
+                showPage(this.dataset.page);           
+          }
+        });
+      });
+
+</script>
+</head>
+
+
+<body id="Jesus">
+  <button data-page="register">REGISTER</button>
+  <button data-page="addBook">Add book</button>
+  <button data-page="borrow_a_book">Borrow a book</button>
+ 
+  
+  
+  <div id="register">
+    <h4>Register here</h4>
+    <form class="d-flex" action="add_student" method="POST">
+            {% csrf_token %}
+            <table class="table" style="margin-top: 20px;">
+                <tr>
+                    <td>referenceId:</td>
+                    <td><input type="text" class="form_1" name="student_1" required></td>
+                </tr>
+                <tr>
+                    <td >studentName:</td>
+                    <td><input type="text" class="form_2" name="student_2" required></td>
+                </tr>
+                <tr>
+                    <td>phoneNumber:</td>
+                    <td><input type="text" class="form_3" name="student_3" required></td>
+                </tr>
+                <tr>
+                    <td>Parents:</td>
+                    <td><input type="text" class="form_4" name="student_4" required></td>
+                </tr>
+                <tr>
+                    <td>residence:</td>
+                    <td><input type="text" class="form_5" name="student_5" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="btn btn info, padding: 10px" type="submit">save</button></td>
+                </tr>  
+            </table>  
+    </form>           
+  
+  </div>
+
+  
+  
+
+     
+
+  <div id="addBook">
+    <h4>ADD A BOOK </h4>
+    <form id="addBook1" action="/add_books" method="POST">
+            {% csrf_token %}
+            <table class="table" style="margin-top: 20px;">
+                <tr>
+                  <td>CATEGORY:</td>     
+                  <td><input type="text"  name="addCat" placeholder="category" required></td>
+                </tr>
+                
+                <tr>
+                  <td>BOOK TITLE:</td>      
+                  <td><input type="text"  name="addTit" placeholder="title" required></td>
+                </tr>
+              
+                <tr>
+                  <td>ABOUT THE BOOK:</td>      
+                  <td><input type="text"  name="book_theme" placeholder="description" required></td>
+                </tr>
+
+                <tr>
+                  <td>BOOK CONDITION:</td>      
+                  <td><input type="text"  name="status" placeholder="book_status" required></td>
+                </tr>
+
+                <tr>  
+                  <td>REFID:</td>
+                  <td><input type="text"  name="addRef" placeholder="ref" required></td>
+                </tr> 
+
+                <tr>    
+                  <td>IMAGEURL:</td>
+                  <td><input type="text"  name="addUrl" placeholder="imageUrl" required></td>
+                </tr>
+
+
+                <tr>
+                  <td>PRICE:</td>     
+                  <td><input type="number"  name="addPrice" placeholder="book_price" required></td>
+                </tr>
+              
+                <tr>  
+                  <td>AUTHOR:</td>     
+                  <td><input type="text"  name="addAut" placeholder="author" required></td>
+                </tr>
+              
+                <tr>  
+                  <td>COPIES:</td>      
+                  <td><input type="text"  name="addCopies" placeholder="book_copies" required></td>
+                </tr>
+                <tr>
+                  <td><button type="submit">Add a book</button></td>
+                </tr>
+            </table class="table" style="margin-top: 20px;">
+      </form>
+</div></br></br>
+
+
+<div id="borrow_a_book">
+  <h4>BORROW A BOOK </h4>
+  <form id="borrow_a_book1" action="book_borrowed_view" method="POST">
+        {% csrf_token %}
+        <table class="table" style="margin-top: 20px;">
+            <tr>
+              <td>STUDENT NAME:</td>   
+              <td><input type="text" mx='30' max='50' name="student_name_1" placeholder="name" required></td>
+            </tr>
+
+            <tr>
+              <td>STUDENT REF ID:</td>   
+              <td><input type="text" mx='30' max='50' name="student_id" placeholder="studentID" required></td>
+            </tr>
+      
+            <tr>
+              <td>CATEGORY:         
+              <td><input type="text" mx='30' max='50' name="borCat" placeholder="category" required></td>
+            </tr>
+      
+          <tr>
+              <td>TITLE:</td>      
+              <td><input type="text" mx='30' max='50' name="borTit" placeholder="title" required></td>
+          </tr>
+          
+          <tr>
+              <td>AUTHOR:</td>     
+              <td><input type="text" max='50' name="borAut" placeholder="author" required></td>
+          </tr>
+          
+          <tr>
+              <td>BOOK REF ID:</td>
+              <td><input type="text" max='50' name="borRef" placeholder="ref" required></td>
+          </tr>
+
+              <td>BOOK CONDITION:</td> 
+              <td><input type="text" max='50' name="borCondition" placeholder="ref" required></td>
+          </tr>
+      
+      
+          <tr>
+              <td>RETURN DATE:</td>      
+              <td><input type="text" max='50' name="retDat" placeholder="RETURN DATE" required></td>
+          </tr>
+
+          <tr>
+              <td>STATUS:</td>      
+              <td><input type="text" max='50' name="borStatus" placeholder="STATUS" required></td>
+          </tr>
+          <tr>
+            <td><button type="submit">Borrow a book</button></td>
+          <tr>
+      <table>
+</form>
+</div></br>
+
+
+
+
+
+         
+{% endblock content %}
