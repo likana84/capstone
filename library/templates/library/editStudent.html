@@ -1,0 +1,62 @@
+{% extends "library/layout.html" %}
+{% load static %}
+
+    
+{%  block content  %} 
+
+
+<form id="edit" action="" method="POST">
+    {% csrf_token %}
+    <table class="table" style="margin-top: 20px;">
+        <tr>
+          <td>STUDENT NAME:</td>   
+          <td><input type="text" mx='30' max='50' name="student_name_1" placeholder="name" required></td>
+        </tr>
+
+        <tr>
+          <td>STUDENT REF ID:</td>   
+          <td><input type="text" mx='30' max='50' name="student_id" placeholder="studentID" required></td>
+        </tr>
+  
+        <tr>
+          <td>CATEGORY:         
+          <td><input type="text" mx='30' max='50' name="borCat" placeholder="category" required></td>
+        </tr>
+  
+      <tr>
+          <td>TITLE:</td>      
+          <td><input type="text" mx='30' max='50' name="borTit" placeholder="title" required></td>
+      </tr>
+      
+      <tr>
+          <td>AUTHOR:</td>     
+          <td><input type="text" max='50' name="borAut" placeholder="author" required></td>
+      </tr>
+      
+      <tr>
+          <td>BOOK REF ID:</td>
+          <td><input type="text" max='50' name="borRef" placeholder="ref" required></td>
+      </tr>
+
+          <td>BOOK CONDITION:</td> 
+          <td><input type="text" max='50' name="borCondition" placeholder="ref" required></td>
+      </tr>
+  
+  
+      <tr>
+          <td>RETURN DATE:</td>      
+          <td><input type="text" max='50' name="retDat" placeholder="RETURN DATE" required></td>
+      </tr>
+
+      <tr>
+          <td>STATUS:</td>      
+          <td><input type="text" max='50' name="borStatus" placeholder="STATUS" required></td>
+      </tr>
+      <tr>
+        <td><button type="submit">Borrow a book</button></td>
+      <tr>
+  <table>
+</form>
+
+{% endblock content %}
+

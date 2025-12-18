@@ -4,19 +4,12 @@
     
 {%  block content  %} 
 <h2>BOOK DATABSE</h2>
-<div>SEARCH</div>
-<div>
-    
-    <form  class="d-flex" role= "search">
-        {% csrf_token%}
-        <input   type="search"  placeholder="Search " aria label>
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-    </form>
 
 
 
 
-        <h4>{{allBooks.count}} book collections.</h4>
+
+        <h4>{{allBooks.count}} book type collections.</h4>
   
  
     <table class="table">
@@ -44,11 +37,7 @@
                     <td>{{allBooks.price}}</td>
                     <td>{{allBooks.author}}</td>
                     <td>{{allBooks.copies}}</td>
-                    <td>
-                    <a href="edit_books_view id={{allBooks.id}}"><button type="submit" class= "btn btn-primary">Edit</button></a>
-                    <a href="delete_add_books id={{allBooks.id}}/"><button class="btn btn-danger">Delete</button></a>
-                    </td>
-
+                    
             </tr>
         {% endfor %}
       </tbody>

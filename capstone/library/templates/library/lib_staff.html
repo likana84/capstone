@@ -1,0 +1,30 @@
+{% extends "library/layout.html" %}
+{% load static %}
+
+    
+{%  block content  %} 
+    <style>
+        #libraryStaff {
+            background-image: radial-gradient(closest-side at  60% 55%, red, yellow,pink);
+          }
+    </style>
+    <div id="libraryStaff">
+    <h4>LIBRARY STAFF </h4>
+    {% if library_staff %} 
+          {% for library_staff in library_staff %}  
+          <ul> 
+              
+              <li>  MANAGER: {{library_staff.manager}}</li>
+              <li>  LIBRARIAN:{{library_staff.librarian}} </li>  
+              <li>  ASSISTANT LIBRARIAN:{{library_staff.Assistant_librarian}}</li> 
+              
+          </ul> 
+          {% endfor %}   
+    {% else %}
+    <p style="font-size:18px">Not available</p>  
+    {% endif %}           
+    
+    </div> 
+   
+   
+{% endblock content %}

@@ -44,7 +44,7 @@
   
   
   <div id="register">
-    <h4>Register here</h4>
+    <h4>Student/Readers Register </h4>
     <form class="d-flex" action="add_student" method="POST">
             {% csrf_token %}
             <table class="table" style="margin-top: 20px;">
@@ -141,7 +141,7 @@
 
 <div id="borrow_a_book">
   <h4>BORROW A BOOK </h4>
-  <form id="borrow_a_book1" action="book_borrowed_view" method="POST">
+  <form id="borrow_a_book1" action="book_borrowed" method="POST">
         {% csrf_token %}
         <table class="table" style="margin-top: 20px;">
             <tr>
@@ -175,18 +175,24 @@
           </tr>
 
               <td>BOOK CONDITION:</td> 
-              <td><input type="text" max='50' name="borCondition" placeholder="ref" required></td>
+              <td><input type="text" max='50' name="borCondition" placeholder="condition" required></td>
           </tr>
+
+          <tr>
+            <td>DATE BORROWED:</td>      
+            <td><input type="text" max='50' name="borDat" placeholder="date borrowed" required></td>
+          </tr>
+
       
       
           <tr>
               <td>RETURN DATE:</td>      
-              <td><input type="text" max='50' name="retDat" placeholder="RETURN DATE" required></td>
+              <td><input type="text" max='50' name="retDat" placeholder="return date" required></td>
           </tr>
 
           <tr>
               <td>STATUS:</td>      
-              <td><input type="text" max='50' name="borStatus" placeholder="STATUS" required></td>
+              <td><input type="text" max='50' name="borStatus" placeholder="status" required></td>
           </tr>
           <tr>
             <td><button type="submit">Borrow a book</button></td>

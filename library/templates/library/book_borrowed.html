@@ -6,12 +6,14 @@
 <h4>{{borrowed_books.count}} books borrowed.</h4>
 <div>
     {% if borrowed_books %}
+    <div class="bkBorrowed">
         <ul>
             {% for  borrowed_books in  borrowed_books %}
             
             <li>{{borrowed_books.title }}</li>
             {% endfor%}   
         </ul>
+    </div>
     {% else %}
         <p style="font-size:18px">Books not available</p>  
     {% endif %} 
@@ -29,7 +31,8 @@
                     <td>TITLE</td>
                     <td>BOOK REF/ID</td>
                     <td>BOOK CONDITION</td>
-                    <td>RETURN_DATE</td>
+                    <td>DATE BORROWED</td>
+                    <td>RETURN DATE</td>
                     <td>STATUS</td>
                 </tr>
             </thead>
@@ -42,12 +45,9 @@
                             <td>{{borrowed_books.title}}</td>
                             <td>{{borrowed_books.refId}}</td>
                             <td>{{borrowed_books.book_condition}}</td>
+                            <td>{{borrowed_books.dateBorrowed}}</td>
                             <td>{{borrowed_books.return_date}}</td>
                             <td>{{borrowed_books.status}}</td>
-                            <td> 
-                                <a href="edit_book_borrowed id={{borrowed_books.id}}">Edit</button></a>
-                                <button class= "btn btn danger">Delete</button>
-                            </td>
 
                     </tr>
                 {% endfor %}

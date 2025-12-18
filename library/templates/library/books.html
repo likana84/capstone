@@ -9,9 +9,9 @@
 
 
 <div id="allBooks">
-    <h4>{{allBooks.count}} books available.</h4>
+    <h4>{{allBooks.count}} book samples available.</h4>
     {% if allBooks %}
-        <ul>
+        <ul class="bkImage">
             {% for allBooks in allBooks %}
             <li><img src="{{allBooks.imageUrl}}"></li>
             <li><a href="{% url 'library:book_details_name' id=allBooks.id %}">{{allBooks.title }}<a/></li>   

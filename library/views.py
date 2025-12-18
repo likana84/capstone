@@ -9,17 +9,25 @@ from .models import  User,  Book, Author,  Student,  BookInstance, LibraryStaff
 # Create your views here.
 
 def index(request):
-        
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("library:login"))
+    else:    
         return render(request, "library/index.html")
 
 
 def form(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("library:login"))
+    else:
        
         return render(request, "library/forms.html")
 
        
 
 def books(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("library:login"))
+    else:
         allBooks= Book.objects.all()
         return render(request, "library/books.html", {"allBooks":allBooks})
 
@@ -49,42 +57,12 @@ def add_books(request):
         addBooks.copies= copies
         addBooks.save()
         
-        #redirect to index page
-        return HttpResponseRedirect("book added successfully")
+        #add book
+        return HttpResponse("book added successfully")
 
 
-def edit_add_books(request):
-          # edit data from the form
-    if request.method == "POST":
-        category= request.POST.get("addCat")
-        title= request.POST.get("addTit")
-        about_the_book= request.POST.get("book_theme")
-        book_condition= request.POST.get("status")
-        refId= request.POST.get("addRef")
-        imageUrl= request.POST.get("addUrl")
-        price= request.POST.get("addPrice")
-        author= request.POST.get("addAut")
-        copies= request.POST.get("addCopies")
-        print(category,title,about_the_book,book_condition,refId,imageUrl,price,author,copies)
 
-        addBooks= Book.objects.get(id=request.POST['editBkId'])
-        addBooks.category= category
-        addBooks.title= title
-        addBooks.about_the_book= about_the_book
-        addBooks.book_condition= book_condition
-        addBooks.refId= refId
-        addBooks.imageUrl= imageUrl
-        addBooks.price= price
-        addBooks.author= author
-        addBooks.copies= copies
-        addBooks.save()
-        
-        #redirect to index page
-        return HttpResponseRedirect("book added successfully")
-    
-def edit_add_books_view(request):
-   
-    return render(request,"library/edit_book.html")
+
 
      
      
@@ -146,17 +124,11 @@ def book_borrowed(request):
         borrowed_book.save()
 
         #redirect to index page
-        return HttpResponse("index")
+        return HttpResponse("successfully borrowed")
     
 
-def edit_book_borrowed(request):
-    pass
 
 
-
-def edit_book_borrowed_view(request):
-   
-    return render(request, "library/edit_book_borrowed.html")
 
 
 
@@ -189,11 +161,11 @@ def author_profile(request):
 
 
 def student(request):
-        if "q" in request.GET:
-            q = request.GET['q']
-            studentNames= Student.objects.filter(studentNames__icontains=q)
-        else:
-            studentNames= Student.objects.all()
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("library:login"))
+    else:
+      
+        studentNames= Student.objects.all()
         context= {
             'studentNames':studentNames
         }
@@ -216,12 +188,16 @@ def add_student(request):
         studentProfile.residence= residence
 
         studentProfile.save()
-        return HttpResponse('REGISTERED')
+        return HttpResponse("REGISTERED")
 
 
 
-def search_student(request):
-     pass
+
+
+
+
+         
+          
 
 
      
@@ -240,6 +216,9 @@ def search_student(request):
 
 
 def lib_staff(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("library:login"))
+    else:
         library_staff= LibraryStaff.objects.all()
         return render(request, "library/lib_staff.html", {"library_staff":library_staff})  
     
