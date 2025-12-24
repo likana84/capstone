@@ -4,9 +4,26 @@
     background-color:burlywood;
     border-radius:0.2rem;
     
- 
-}   
+}  
 
+
+h5{
+    text-align: center;
+}
+
+img{
+    margin: 10px;
+    margin-bottom: 0;
+}
+
+.opening-txt{
+    padding: 20px;
+    color:white
+}
+figurecaption{
+    display:block;
+    margin-left:10px;
+}
 
 @keyframes motion{
     0%{
