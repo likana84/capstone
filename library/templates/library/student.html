@@ -11,9 +11,12 @@
         background-color:pink;
         width:60%;
         margin:50px 200px 50px 250px;
-        padding:50px 100px 50px 100px;
-        
+        padding:50px 100px 50px 100px;    
     }
+    .studentTable{
+        height: 200px;
+        overflow-y: scroll;
+}
 
 
 
@@ -23,7 +26,7 @@
 
 <div class="studentContainer">
     <h4 style="text-align:center">{{studentNames.count}} students subscribed.</h4>
-
+        <div class="studentTable">
             <table>
                 <thead>
                     <tr style="text-transform:uppercase;color:purple;background-color:lightgrey;padding:7px;">
@@ -34,6 +37,7 @@
                         <td>residence</td>
                     </tr>
                 </thead>
+                
                 <tbody>
                     {% for studentNames in studentNames %}
                         <tr style="background-color:white;">
@@ -47,8 +51,10 @@
                         </tr>
                     {% endfor %}
                 </tbody>
-            
-            </table>   
+            </table> 
+
+          </div>
+          
 </div>
 
     
