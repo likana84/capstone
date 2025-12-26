@@ -3,43 +3,52 @@
 
     
 {%  block content  %} 
+<style>
+    body{  
+    background-color:cyan;
+    }
+    .studentContainer{
+        background-color:pink;
+        width:60%;
+        margin:50px 200px 50px 250px;
+        padding:50px 100px 50px 100px;
+        
+    }
 
 
 
+</style>
 
 
-    <h4>{{studentNames.count}} students subscribed.</h4>
 
+<div class="studentContainer">
+    <h4 style="text-align:center">{{studentNames.count}} students subscribed.</h4>
 
-<div class="row" style="margin-top:20px;">
-    <div id= "Gabriel" style="overflow-y-auto;height= 400px;background-color:burlywood"> 
-        <table class= "table table-hover">
-            <thead>
-                <tr>
-                    <td>referenceId</td>
-                    <td>studentName</td>
-                    <td>phone_number</td>
-                    <td>parents</td>
-                    <td>residence</td>
-                </tr>
-            </thead>
-            <tbody>
-                {% for studentNames in studentNames %}
-                    <tr>
-                            <td>{{studentNames.referenceId}}</td>
-                            <td>{{studentNames.studentName}}</td>
-                            <td>{{studentNames.phone_number}}</td>
-                            <td>{{studentNames.parents}}</td>
-                            <td>{{studentNames.residence}}</td>
-                            
-
+            <table>
+                <thead>
+                    <tr style="text-transform:uppercase;color:purple;background-color:lightgrey;padding:7px;">
+                        <td>referenceId</td>
+                        <td>studentName</td>
+                        <td>phone_number</td>
+                        <td>parents</td>
+                        <td>residence</td>
                     </tr>
-                {% endfor %}
-            </tbody>
-           
-        </table>
-    </div>
-</div>
+                </thead>
+                <tbody>
+                    {% for studentNames in studentNames %}
+                        <tr style="background-color:white;">
+                                <td>{{studentNames.referenceId}}</td>
+                                <td>{{studentNames.studentName}}</td>
+                                <td>{{studentNames.phone_number}}</td>
+                                <td>{{studentNames.parents}}</td>
+                                <td>{{studentNames.residence}}</td>
+                                
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            
+            </table>   
 </div>
 
     

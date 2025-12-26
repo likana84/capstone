@@ -6,10 +6,18 @@
     
 }  
 
+ .studentContainer{
+    margin-top: 100px;
+}
+
+
+
 
 h5{
     text-align: center;
 }
+
+
 
 img{
     margin: 10px;
@@ -23,6 +31,10 @@ img{
 figurecaption{
     display:block;
     margin-left:10px;
+}
+
+ #libraryStaff {
+            background-image: radial-gradient(closest-side at  60% 55%, red, yellow,pink);
 }
 
 @keyframes motion{
