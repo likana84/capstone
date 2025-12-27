@@ -23,7 +23,21 @@ button{
     width:200px;
     height:30px;
     border-radius:5px;
+    border:none;
+    
+    
 }
+
+button:hover{
+    background-color:cyan;
+    
+       
+}
+a{
+    text-decoration:none;
+    
+}
+
 
 
 </style>
@@ -35,7 +49,7 @@ button{
         <div class="studentTable">
             <table>
                 <thead>
-                    <tr style="text-transform:uppercase;color:purple;background-color:lightgrey;padding:7px;">
+                    <tr style="text-transform:uppercase;color:black;background-color:cyan;padding:7px;">
                         <td>referenceId</td>
                         <td>studentName</td>
                         <td>phone_number</td>
@@ -60,7 +74,7 @@ button{
             </table> 
 
           </div>
-          <button><a href="{% url 'library:form'%}">Register as a member</a></button>
+          <button style="color:white"><a href="{% url 'library:form'%}">Register as a member</a></button>
           
 </div>
 

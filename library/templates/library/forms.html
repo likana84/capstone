@@ -3,7 +3,22 @@
 
     
 {%  block content  %}
-
+<style>
+.container1{
+  margin:10px;
+}
+button{
+  border-radius:5px;
+  border:none;
+}
+td{
+  color:white;
+}
+input{
+  border-radius:5px;
+  border:none;
+}
+</style>
 <script>
   function showPage(page) {
     document.querySelectorAll('div').forEach(div => {
@@ -26,45 +41,46 @@
 
 
 <body id="Jesus">
-  <button data-page="register">Be a member</button>
-  <button data-page="addBook">Add book</button>
-  <button data-page="borrow_a_book">Borrow a book</button>
- 
+  <div class="container1">
+    <button data-page="register">Be a member</button>
+    <button data-page="addBook">Add book</button>
+    <button data-page="borrow_a_book">Borrow a book</button>
   
-  
-  <div id="register">
-    <h4>Student/Readers Register Membership </h4>
-    <form class="d-flex" action="add_student" method="POST">
-            {% csrf_token %}
-            <table class="table" style="margin-top: 20px;">
-                <tr>
-                    <td>referenceId:</td>
-                    <td><input type="text" class="form_1" name="student_1" required></td>
-                </tr>
-                <tr>
-                    <td >studentName:</td>
-                    <td><input type="text" class="form_2" name="student_2" required></td>
-                </tr>
-                <tr>
-                    <td>phoneNumber:</td>
-                    <td><input type="text" class="form_3" name="student_3" required></td>
-                </tr>
-                <tr>
-                    <td>Parents:</td>
-                    <td><input type="text" class="form_4" name="student_4" required></td>
-                </tr>
-                <tr>
-                    <td>residence:</td>
-                    <td><input type="text" class="form_5" name="student_5" required></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button class="btn btn info, padding: 10px" type="submit">save</button></td>
-                </tr>  
-            </table>  
-    </form>           
-  
-  </div>
-
+    
+    
+    <div id="register">
+      <h4>Student/Readers Membership Registration</h4>
+      <form class="d-flex" action="add_student" method="POST">
+              {% csrf_token %}
+              <table class="table" style="margin-top: 20px;">
+                  <tr>
+                      <td>ReferenceId:</td>
+                      <td><input type="text" class="form_1" name="student_1" placeholder="ReferenceId" required></td>
+                  </tr>
+                  <tr>
+                      <td >StudentName:</td>
+                      <td><input type="text" class="form_2" name="student_2" placeholder="StudentName" required></td>
+                  </tr>
+                  <tr>
+                      <td>PhoneNumber:</td>
+                      <td><input type="text" class="form_3" name="student_3" placeholder="PhoneNumber" "required></td>
+                  </tr>
+                  <tr>
+                      <td>Parents/Guarantor:</td>
+                      <td><input type="text" class="form_4" name="student_4" placeholder="Parents/Guarantor" required></td>
+                  </tr>
+                  <tr>
+                      <td>Residence:</td>
+                      <td><input type="text" class="form_5" name="student_5" placeholder="Residence" required></td>
+                  </tr>
+                  <tr>
+                      <td colspan="2"><button style="padding: 2px;background-color:lightblue;border-radius:5px" type="submit">save</button></td>
+                  </tr>  
+              </table>  
+      </form>           
+    
+    </div>
+</div>
   
   
 
@@ -190,7 +206,7 @@
 </form>
 </div></br>
 
-
+</body>
 
 
 
