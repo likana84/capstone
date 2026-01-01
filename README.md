@@ -1,1 +1,1 @@
-Capstone is a final project fom Harvard University.It uses a framewwork called Django, JavaScript, CSS and HTML.The name of the app is library.The purpose of library is to facilitate smooth running of a library
+Capstone is a final project fom Harvard University.It uses a framework called Django, JavaScript, CSS and HTML.The name of the app is library.The purpose of library is to facilitate smooth running of a library by offering storage facility and track records of books borrowed and returned by students. 

@@ -7,7 +7,17 @@
     body{  
     background-color:rgba(226, 241, 14, 0.78);
     text-align:center;
-    decorations:none;
+    
+    }
+    li{
+        list-style-type:none;
+    }
+    .bkImage li{
+        display:inline;
+    }
+    #links a{
+        font-size:20px;
+        margin:15px;
     }
 
 
@@ -34,9 +44,9 @@
   
 <div id="links">
     
-    <a href="{% url 'library:book_borrowed_view'%}">BOOKS BORROWED</a></br>
-    <a href="{% url 'library:author'%}">AUTHORS</a></br>
-    <a href="{% url 'library:all_books'%}">BOOKS DATABASE</a></br>
+    <a href="{% url 'library:book_borrowed_view'%}">BOOKS BORROWED</a>
+    <a href="{% url 'library:author'%}">AUTHORS</a>
+    <a href="{% url 'library:all_books'%}">BOOKS DATABASE</a>
 </div>
           
 {% endblock content %} 

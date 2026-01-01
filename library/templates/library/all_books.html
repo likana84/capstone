@@ -3,55 +3,71 @@
 
     
 {%  block content  %} 
-<h2>BOOK DATABSE</h2>
-
-
-
-
-
-        <h4>{{allBooks.count}} book type collections.</h4>
-  
- 
-    <table class="table">
-      <thead>
-          <tr>
-              <td>CATEGORY</td>
-              <td>TITLE</td>
-              <td>CONDITION</td>
-              <td>ABOUT THE BOOK</td>
-              <td>REFID</td>
-              <td>PRICE</td>
-              <td>AUTHOR</td>
-              <td>COPIES</td>
-          </tr>
-
-      </thead>
-      <tbody>
-        {% for allBooks in allBooks %}
-            <tr>
-                    <td>{{allBooks.category}}</td>
-                    <td>{{allBooks.title}}</td>
-                    <td>{{allBooks.book_condition}}</td>
-                    <td>{{allBooks.about_the_book}}</td>
-                    <td>{{allBooks.refId}}</td>
-                    <td>{{allBooks.price}}</td>
-                    <td>{{allBooks.author}}</td>
-                    <td>{{allBooks.copies}}</td>
-                    
-            </tr>
-        {% endfor %}
-      </tbody>
-    </table></br></br>
+<style>
+    body{
+        background-color:darkgrey;
+    }
+    .container{
+        width:70%;
+        height:auto;
+        padding:10px;
+        background-color:lightgrey;
+    }
+    thead{
+        background-color:lightblue;
+        color:white;
+    }
+    .table-container{
+        height:400px;
+        overflow-y:scroll;
+    }
+</style>
+<div class="container">
+        <h1>BOOK DATABSE</h1>
    
-</div>
-  
-<div id="links">
-    
-    <a href="{% url 'library:book_borrowed_view'%}">BOOKS BORROWED</a></br>
-    <a href="{% url 'library:author'%}">AUTHORS</a></br>
-    
-</div>
-  
+        <h2>{{allBooks.count}} book type collections.</h2>
+        
+    <div class="table-container">   
+            <table class="table">
+            <thead>
+                <tr>
+                    <td>CATEGORY</td>
+                    <td>TITLE</td>
+                    <td>CONDITION</td>
+                    <td>ABOUT THE BOOK</td>
+                    <td>REFID</td>
+                    <td>PRICE</td>
+                    <td>AUTHOR</td>
+                    <td>COPIES</td>
+                </tr>
+
+            </thead>
+            <tbody>
+                {% for allBooks in allBooks %}
+                    <tr>
+                            <td>{{allBooks.category}}</td>
+                            <td>{{allBooks.title}}</td>
+                            <td>{{allBooks.book_condition}}</td>
+                            <td>{{allBooks.about_the_book}}</td>
+                            <td>{{allBooks.refId}}</td>
+                            <td>{{allBooks.price}}</td>
+                            <td>{{allBooks.author}}</td>
+                            <td>{{allBooks.copies}}</td>
+                            
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </table></br></br>
+        
+        </div>
+    </div>
+        <div id="links">
+            
+            <a href="{% url 'library:book_borrowed_view'%}">BOOKS BORROWED</a></br>
+            <a href="{% url 'library:author'%}">AUTHORS</a></br>
+            
+        </div>
+    </div>  
 
     
     

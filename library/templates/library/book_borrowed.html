@@ -2,15 +2,32 @@
 {% load static %}
 
 {% block content %}
+<style>
+    body{
+    background-color:rgba(87, 94, 87, 0.4);
+    }
+    h1, h2{
+        text-align:center;
+        color:indigo;
+        text-shadow:2px 2px 2px lightgrey;
+        margin-bottom:10px;
+    }
+    thead{
+        background-color:lightblue;
+        font-weight:bold;
+
+    }
+    
+</style>
 <h1>BORROWED BOOKS </h1></br></br>
-<h4>{{borrowed_books.count}} books borrowed.</h4>
+<h2>{{borrowed_books.count}} books borrowed.</h2>
 <div>
     {% if borrowed_books %}
     <div class="bkBorrowed">
         <ul>
             {% for  borrowed_books in  borrowed_books %}
             
-            <li>{{borrowed_books.title }}</li>
+           
             {% endfor%}   
         </ul>
     </div>
@@ -21,7 +38,7 @@
 
 
 <div class="row" style="margin-top:20px;">
-    <div class= "container" style="overflow-y-auto;height= 400px">
+    <div class= "container" style="overflow-y-auto;height= 400px;margin-bottom:20px;">
         <table class= "table table-hover">
             <thead>
                 <tr>

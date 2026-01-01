@@ -28,14 +28,14 @@ img{
     padding: 20px;
     color:white
 }
-figurecaption{
+figcaption{
     display:block;
     margin-left:10px;
 }
 
- #libraryStaff {
-            background-image: radial-gradient(closest-side at  60% 55%, red, yellow,pink);
-}
+
+
+
 
 @keyframes motion{
     0%{
@@ -59,8 +59,8 @@ figurecaption{
 }
 
 #Jesus{
-
-    background-image: linear-gradient(to right, red, orange, yellow, green, rgb(179, 179, 201), indigo,violet);
+       background-image: linear-gradient(to right, red, orange, yellow, green, rgb(179, 179, 201), indigo,violet);
+   
 } 
 
 

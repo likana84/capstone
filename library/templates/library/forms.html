@@ -1,15 +1,20 @@
 {% extends "library/layout.html" %}
 {% load static %}
 
+
+
+
     
 {%  block content  %}
 <style>
-.container1{
-  margin:10px;
-}
+  body{
+     background-image: linear-gradient(to right, red, orange, yellow, green, rgb(179, 179, 201), indigo,violet);
+  }
+
 button{
   border-radius:5px;
   border:none;
+  margin:10px;
 }
 td{
   color:white;
@@ -18,33 +23,19 @@ input{
   border-radius:5px;
   border:none;
 }
+#addCat{
+  width:186px;
+  padding:2px;
+  border-radius:5px;
+  border:none;
+}
 </style>
-<script>
-  function showPage(page) {
-    document.querySelectorAll('div').forEach(div => {
-        div.style.display= 'none';
-        })
-    
-        document.querySelector(`#${page}`).style.display= 'block';
-      }
-    
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('button').forEach(button => {
-            button.onclick = function() {
-                showPage(this.dataset.page);           
-          }
-        });
-      });
 
-</script>
-</head>
-
-
-<body id="Jesus">
-  <div class="container1">
+  
     <button data-page="register">Be a member</button>
     <button data-page="addBook">Add book</button>
     <button data-page="borrow_a_book">Borrow a book</button>
+  
   
     
     
@@ -80,20 +71,31 @@ input{
       </form>           
     
     </div>
-</div>
+
   
   
 
      
 
   <div id="addBook">
-    <h4>ADD A BOOK </h4>
+    <h4>CONTRIBUTE A BOOK</h4>
     <form id="addBook1" action="/add_books" method="POST">
             {% csrf_token %}
             <table class="table" style="margin-top: 20px;">
                 <tr>
-                  <td>CATEGORY:</td>     
-                  <td><input type="text"  name="addCat" placeholder="category" required></td>
+                  <td>CATEGORY:</td>
+                  <td>
+                  <select id="addCat" name="addCat" required>
+                  <option value="Religion">Religion</option>
+                  <option value="Fiction">Fiction</option>
+                  <option value="History">History</option>
+                  <option value="Science">Science</option>
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Business">Business</option>.
+                  <option value="Languages">Languages</option>
+                  </select>
+
+                  </td>
                 </tr>
                 
                 <tr>
@@ -141,7 +143,7 @@ input{
                 </tr>
             </table class="table" style="margin-top: 20px;">
       </form>
-</div></br></br>
+</div>
 
 
 <div id="borrow_a_book">
@@ -204,9 +206,26 @@ input{
           <tr>
       <table>
 </form>
-</div></br>
+</div>
 
-</body>
+<script>
+  function showPage(page) {
+    document.querySelectorAll('div').forEach(div => {
+        div.style.display ='none';
+        })
+    
+        document.querySelector(`#${page}`).style.display= 'block';
+      }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('button').forEach(button => {
+            button.onclick = function() {
+                showPage(this.dataset.page);           
+          }
+        });
+      });
+
+</script>
 
 
 
